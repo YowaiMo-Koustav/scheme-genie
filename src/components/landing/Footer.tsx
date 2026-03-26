@@ -1,26 +1,64 @@
-import { Shield } from "lucide-react";
+import { Shield, ExternalLink } from "lucide-react";
 
 const Footer = () => (
-  <footer className="py-12 bg-primary text-primary-foreground">
+  <footer className="py-16 bg-primary text-primary-foreground">
     <div className="container px-4">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-saffron flex items-center justify-center">
-            <Shield className="w-5 h-5 text-saffron-foreground" />
+      <div className="max-w-5xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-12">
+          {/* Brand */}
+          <div className="flex items-start gap-3">
+            <div className="w-11 h-11 rounded-xl bg-saffron flex items-center justify-center shrink-0">
+              <Shield className="w-5 h-5 text-saffron-foreground" />
+            </div>
+            <div>
+              <h3 className="font-display font-bold text-xl">SchemeMatch AI</h3>
+              <p className="text-primary-foreground/50 text-sm mt-1 max-w-xs leading-relaxed">
+                Your AI-powered assistant for discovering government welfare schemes across India.
+              </p>
+            </div>
           </div>
-          <div>
-            <h3 className="font-display font-bold text-lg">SchemeMatch AI</h3>
-            <p className="text-primary-foreground/60 text-sm">Your AI assistant for public welfare</p>
+
+          {/* Links */}
+          <div className="flex flex-wrap gap-x-12 gap-y-4 text-sm">
+            <div className="space-y-3">
+              <h4 className="font-semibold text-primary-foreground/80 text-xs uppercase tracking-wider">Resources</h4>
+              <div className="space-y-2 text-primary-foreground/50">
+                <p className="hover:text-primary-foreground/80 transition-colors cursor-pointer">All Schemes</p>
+                <p className="hover:text-primary-foreground/80 transition-colors cursor-pointer">How It Works</p>
+                <p className="hover:text-primary-foreground/80 transition-colors cursor-pointer">FAQs</p>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <h4 className="font-semibold text-primary-foreground/80 text-xs uppercase tracking-wider">Legal</h4>
+              <div className="space-y-2 text-primary-foreground/50">
+                <p className="hover:text-primary-foreground/80 transition-colors cursor-pointer">Privacy Policy</p>
+                <p className="hover:text-primary-foreground/80 transition-colors cursor-pointer">Terms of Use</p>
+                <p className="hover:text-primary-foreground/80 transition-colors cursor-pointer">Disclaimer</p>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <h4 className="font-semibold text-primary-foreground/80 text-xs uppercase tracking-wider">Official Links</h4>
+              <div className="space-y-2 text-primary-foreground/50">
+                <a href="https://www.india.gov.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-primary-foreground/80 transition-colors">
+                  India.gov.in <ExternalLink className="w-3 h-3" />
+                </a>
+                <a href="https://www.myscheme.gov.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-primary-foreground/80 transition-colors">
+                  MyScheme.gov.in <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="flex gap-8 text-sm text-primary-foreground/60">
-          <span>Privacy Policy</span>
-          <span>Terms of Use</span>
-          <span>Contact</span>
+
+        {/* Divider & copyright */}
+        <div className="border-t border-primary-foreground/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-primary-foreground/30">
+            © 2026 SchemeMatch AI. All scheme data sourced from official government portals.
+          </p>
+          <p className="text-xs text-primary-foreground/30">
+            Not affiliated with the Government of India. For informational purposes only.
+          </p>
         </div>
-        <p className="text-sm text-primary-foreground/40">
-          © 2026 SchemeMatch AI. All data sourced from official government portals.
-        </p>
       </div>
     </div>
   </footer>
