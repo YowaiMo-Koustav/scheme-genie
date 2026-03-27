@@ -22,42 +22,42 @@ const ProblemSolution = () => {
   const lineHeight = useTransform(scrollYProgress, [0.1, 0.5], ["0%", "100%"]);
 
   return (
-    <section id="problem-section" ref={ref} className="py-28 sm:py-36 bg-background relative overflow-hidden">
-      {/* Subtle accent */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-saffron/3 rounded-full blur-3xl -translate-y-1/2" />
+    <section id="problem-section" ref={ref} className="py-28 sm:py-40 relative overflow-hidden">
+      {/* Background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/3 rounded-full blur-[150px]" />
 
       <div className="container px-4 relative">
-        {/* Section label */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <span className="text-saffron font-semibold text-sm uppercase tracking-[0.2em]">The Problem We Solve</span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mt-4 leading-tight">
-            Government schemes exist.<br />
-            <span className="text-muted-foreground font-normal">Finding them shouldn't be this hard.</span>
+          <span className="text-primary font-mono text-sm uppercase tracking-[0.3em]">The Problem We Solve</span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold text-foreground mt-5 leading-[1.1] tracking-tight">
+            Government schemes exist.
+            <br />
+            <span className="text-muted-foreground">Finding them shouldn't be hard.</span>
           </h2>
         </motion.div>
 
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 md:gap-16 relative">
-          {/* Connecting line (desktop) */}
+          {/* Connecting line */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2">
             <div className="absolute inset-0 bg-border" />
             <motion.div
-              className="absolute top-0 left-0 w-full bg-saffron"
+              className="absolute top-0 left-0 w-full bg-gradient-to-b from-destructive to-primary"
               style={{ height: lineHeight }}
             />
           </div>
 
-          {/* Problem column */}
-          <div className="space-y-5">
+          {/* Problems */}
+          <div className="space-y-4">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 text-destructive text-sm font-semibold mb-2"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-destructive/10 text-destructive text-sm font-semibold mb-2 border border-destructive/20"
             >
               <X className="w-4 h-4" />
               Without SchemeMatch
@@ -65,27 +65,27 @@ const ProblemSolution = () => {
             {problems.map((p, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="flex items-start gap-4 p-5 rounded-2xl bg-card border border-border/60 shadow-sm group hover:shadow-md transition-shadow"
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className="flex items-start gap-4 p-5 rounded-2xl glass-card border-glow group hover:border-destructive/20 transition-all duration-300"
               >
                 <div className="w-10 h-10 rounded-xl bg-destructive/10 flex items-center justify-center shrink-0">
                   <p.icon className="w-5 h-5 text-destructive" />
                 </div>
-                <p className="text-foreground/80 text-sm sm:text-base leading-relaxed pt-1.5">{p.text}</p>
+                <p className="text-foreground/70 text-sm sm:text-base leading-relaxed pt-1.5">{p.text}</p>
               </motion.div>
             ))}
           </div>
 
-          {/* Solution column */}
-          <div className="space-y-5">
+          {/* Solutions */}
+          <div className="space-y-4">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-india/10 text-green-india text-sm font-semibold mb-2"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-india/10 text-green-india text-sm font-semibold mb-2 border border-green-india/20"
             >
               <Check className="w-4 h-4" />
               With SchemeMatch AI
@@ -93,16 +93,16 @@ const ProblemSolution = () => {
             {solutions.map((s, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 + 0.2, duration: 0.5 }}
-                className="flex items-start gap-4 p-5 rounded-2xl bg-card border border-green-india/20 shadow-sm group hover:shadow-md transition-shadow"
+                transition={{ delay: i * 0.1 + 0.2, duration: 0.6 }}
+                className="flex items-start gap-4 p-5 rounded-2xl glass-card border-glow group hover:border-green-india/20 transition-all duration-300"
               >
                 <div className="w-10 h-10 rounded-xl bg-green-india/10 flex items-center justify-center shrink-0">
                   <s.icon className="w-5 h-5 text-green-india" />
                 </div>
-                <p className="text-foreground/80 text-sm sm:text-base leading-relaxed pt-1.5">{s.text}</p>
+                <p className="text-foreground/70 text-sm sm:text-base leading-relaxed pt-1.5">{s.text}</p>
               </motion.div>
             ))}
           </div>
