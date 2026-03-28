@@ -14,7 +14,200 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      match_history: {
+        Row: {
+          ai_explanation: string | null
+          created_at: string
+          id: string
+          matched_schemes: Json
+          profile_data: Json
+          user_id: string | null
+        }
+        Insert: {
+          ai_explanation?: string | null
+          created_at?: string
+          id?: string
+          matched_schemes: Json
+          profile_data: Json
+          user_id?: string | null
+        }
+        Update: {
+          ai_explanation?: string | null
+          created_at?: string
+          id?: string
+          matched_schemes?: Json
+          profile_data?: Json
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          age: number | null
+          avatar_url: string | null
+          category: string | null
+          created_at: string
+          disability: boolean | null
+          display_name: string | null
+          education: string | null
+          family_size: number | null
+          gender: string | null
+          id: string
+          income: number | null
+          occupation: string | null
+          role: string | null
+          state: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          age?: number | null
+          avatar_url?: string | null
+          category?: string | null
+          created_at?: string
+          disability?: boolean | null
+          display_name?: string | null
+          education?: string | null
+          family_size?: number | null
+          gender?: string | null
+          id?: string
+          income?: number | null
+          occupation?: string | null
+          role?: string | null
+          state?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          age?: number | null
+          avatar_url?: string | null
+          category?: string | null
+          created_at?: string
+          disability?: boolean | null
+          display_name?: string | null
+          education?: string | null
+          family_size?: number | null
+          gender?: string | null
+          id?: string
+          income?: number | null
+          occupation?: string | null
+          role?: string | null
+          state?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      saved_schemes: {
+        Row: {
+          created_at: string
+          id: string
+          match_reasons: string[] | null
+          match_score: number | null
+          notes: string | null
+          scheme_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          match_reasons?: string[] | null
+          match_score?: number | null
+          notes?: string | null
+          scheme_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          match_reasons?: string[] | null
+          match_score?: number | null
+          notes?: string | null
+          scheme_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "saved_schemes_scheme_id_fkey"
+            columns: ["scheme_id"]
+            isOneToOne: false
+            referencedRelation: "schemes"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      schemes: {
+        Row: {
+          application_link: string | null
+          benefit_amount: number
+          benefits: string
+          category: string
+          confidence: number
+          created_at: string
+          deadline: string
+          description: string
+          difficulty: string
+          documents: string[]
+          eligibility: string[]
+          id: string
+          last_updated: string
+          match_criteria: Json
+          ministry: string
+          name: string
+          roles: string[]
+          scraped_at: string | null
+          slug: string
+          source_url: string | null
+          updated_at: string
+        }
+        Insert: {
+          application_link?: string | null
+          benefit_amount?: number
+          benefits: string
+          category: string
+          confidence?: number
+          created_at?: string
+          deadline?: string
+          description: string
+          difficulty?: string
+          documents?: string[]
+          eligibility?: string[]
+          id?: string
+          last_updated?: string
+          match_criteria?: Json
+          ministry: string
+          name: string
+          roles?: string[]
+          scraped_at?: string | null
+          slug: string
+          source_url?: string | null
+          updated_at?: string
+        }
+        Update: {
+          application_link?: string | null
+          benefit_amount?: number
+          benefits?: string
+          category?: string
+          confidence?: number
+          created_at?: string
+          deadline?: string
+          description?: string
+          difficulty?: string
+          documents?: string[]
+          eligibility?: string[]
+          id?: string
+          last_updated?: string
+          match_criteria?: Json
+          ministry?: string
+          name?: string
+          roles?: string[]
+          scraped_at?: string | null
+          slug?: string
+          source_url?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
